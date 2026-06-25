@@ -3,38 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>黄金回收文案分发</title>
+<title>黄金回收文案</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f5f5; color: #333; min-height: 100vh; }
-.header { background: linear-gradient(135deg, #d4a030, #f0c050); color: #fff; padding: 14px 20px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+.header { background: linear-gradient(135deg, #d4a030, #f0c050); color: #fff; padding: 16px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
 .header h1 { font-size: 20px; font-weight: 600; }
-.header .sub { font-size: 12px; opacity: 0.85; margin-top: 3px; }
-.container { max-width: 600px; margin: 0 auto; padding: 10px 12px; }
+.container { max-width: 600px; margin: 0 auto; padding: 16px; }
 
-.list-item { background: #fff; border-radius: 10px; padding: 14px 16px; margin-bottom: 8px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.12s; display: flex; align-items: center; gap: 12px; }
-.list-item:active { transform: scale(0.98); background: #fef9e7; }
-.list-item .num { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #d4a030, #f0c050); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
-.list-item .info { flex: 1; min-width: 0; }
-.list-item .area { font-size: 16px; font-weight: 600; color: #333; }
-.list-item .preview { font-size: 12px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
-.list-item .arrow { font-size: 20px; color: #ccc; flex-shrink: 0; }
+.copywriting-card { background: #fff; border-radius: 12px; padding: 24px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.copywriting-card .area-title { font-size: 24px; font-weight: 700; color: #d4a030; text-align: center; margin-bottom: 18px; }
+.copywriting-text { font-size: 15px; line-height: 1.9; color: #444; word-break: break-all; background: #fafafa; padding: 18px; border-radius: 8px; border: 1px solid #eee; user-select: text; }
 
-.search-box { margin: 10px 0; }
-.search-box input { width: 100%; padding: 11px 16px; border: 1.5px solid #e0e0e0; border-radius: 10px; font-size: 15px; outline: none; background: #fff; }
-.search-box input:focus { border-color: #d4a030; }
-
-.detail-view { display: none; }
-.detail-view.active { display: block; }
-.back-btn { background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); padding: 4px 8px; }
-.header.detail-header { position: relative; }
-
-.copywriting-card { background: #fff; border-radius: 12px; padding: 20px; margin: 14px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.copywriting-card .area-title { font-size: 22px; font-weight: 700; color: #d4a030; text-align: center; margin-bottom: 16px; }
-.copywriting-text { font-size: 15px; line-height: 1.8; color: #444; word-break: break-all; background: #fafafa; padding: 16px; border-radius: 8px; border: 1px solid #eee; user-select: text; }
-
-.action-bar { display: flex; gap: 10px; margin-top: 14px; }
-.btn { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; }
+.action-bar { display: flex; gap: 10px; margin-top: 16px; }
+.btn { flex: 1; padding: 13px; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; text-align: center; }
 .btn:active { opacity: 0.8; }
 .btn-primary { background: linear-gradient(135deg, #d4a030, #f0c050); color: #fff; }
 .btn-outline { background: #fff; color: #d4a030; border: 1.5px solid #d4a030; }
@@ -42,140 +25,106 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.75); color: #fff; padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 999; pointer-events: none; opacity: 0; transition: opacity 0.3s; }
 .toast.show { opacity: 1; }
 
-.region-info { text-align: center; padding: 6px 0; font-size: 13px; color: #888; }
-.footer { text-align: center; padding: 20px; font-size: 11px; color: #bbb; }
-
-.share-tip { margin-top: 12px; background: #fffbe6; border: 1px solid #ffe58f; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #ad6800; text-align: center; line-height: 1.6; }
+.share-tip { margin-top: 14px; background: #fffbe6; border: 1px solid #ffe58f; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #ad6800; text-align: center; line-height: 1.6; }
 .share-tip code { background: #fff1b8; padding: 2px 6px; border-radius: 4px; font-size: 12px; word-break: break-all; }
+
+.hidden { display: none; }
+
+.welcome { text-align: center; padding: 80px 20px; }
+.welcome h2 { font-size: 20px; color: #d4a030; margin-bottom: 20px; }
+.welcome p { font-size: 14px; color: #888; line-height: 2; }
 </style>
 </head>
 <body>
 
-<div class="header" id="mainHeader">
-    <h1>黄金回收文案分发</h1>
-    <div class="sub">点击地区查看对应文案 · 共 <span id="totalCount">136</span> 条</div>
+<div id="contentView">
+    <div class="header">
+        <h1 id="areaTitle">-</h1>
+    </div>
+    <div class="container">
+        <div class="copywriting-card">
+            <div class="area-title" id="detailArea"></div>
+            <div class="copywriting-text" id="detailText" onclick="copyText()"></div>
+        </div>
+        <div class="action-bar">
+            <button class="btn btn-primary" onclick="copyText()">复制文案</button>
+            <button class="btn btn-outline" onclick="shareLink()">分享链接</button>
+        </div>
+        <div class="share-tip">
+            将链接发给他人，打开直接看到此文案<br>
+            <code id="shareUrlDisplay"></code>
+        </div>
+    </div>
 </div>
 
-<div class="header detail-header" id="detailHeader" style="display:none;">
-    <button class="back-btn" onclick="goBack()">&larr; 返回</button>
-    <h1 id="detailTitle">文案详情</h1>
+<div id="welcomeView" style="display:none;">
+    <div class="welcome">
+        <h2>黄金回收文案分发</h2>
+        <p>在链接后面加上 #地区名<br>即可查看对应文案</p>
+        <p style="margin-top:16px;font-size:12px;color:#bbb;">例如：网址/#毕节</p>
+    </div>
 </div>
 
 <div class="toast" id="toast"></div>
-
-<div class="container" id="listView">
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="搜索地区..." oninput="filterList()">
-    </div>
-    <div class="region-info">点击地区卡片，查看黄金回收文案</div>
-    <div id="listContainer"></div>
-    <div class="footer">每个链接对应唯一地区 · 可分享给他人直接打开</div>
-</div>
-
-<div class="container detail-view" id="detailView">
-    <div class="copywriting-card">
-        <div class="area-title" id="detailArea"></div>
-        <div class="copywriting-text" id="detailText" onclick="copyText()"></div>
-    </div>
-    <div class="action-bar">
-        <button class="btn btn-primary" onclick="copyText()">复制文案</button>
-        <button class="btn btn-outline" onclick="shareLink()">分享链接</button>
-    </div>
-    <div class="share-tip">
-        将此链接发送给他人，打开后直接看到当前文案<br>
-        <code id="shareUrlDisplay"></code>
-    </div>
-</div>
 
 <script>
 var DATA = [{"id": "AA1", "area": "毕节", "copywriting": "毕节黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#毕节黄金回收#毕节上门回收黄金"}, {"id": "AA2", "area": "玉溪", "copywriting": "玉溪黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#玉溪黄金回收#玉溪上门回收黄金"}, {"id": "AA3", "area": "钦州", "copywriting": "钦州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#钦州黄金回收#钦州上门回收黄金"}, {"id": "AA4", "area": "百色", "copywriting": "百色黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#百色黄金回收#百色上门回收黄金"}, {"id": "AA5", "area": "柳州", "copywriting": "柳州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#柳州黄金回收#柳州上门回收黄金"}, {"id": "AA6", "area": "桂林", "copywriting": "桂林黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#桂林黄金回收#桂林上门回收黄金"}, {"id": "AA7", "area": "玉林", "copywriting": "玉林黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#玉林黄金回收#玉林上门回收黄金"}, {"id": "AA8", "area": "绵阳", "copywriting": "绵阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#绵阳黄金回收#绵阳上门回收黄金"}, {"id": "AB1", "area": "北海", "copywriting": "北海黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#北海黄金回收#北海上门回收黄金"}, {"id": "AB2", "area": "凯里", "copywriting": "凯里黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#凯里黄金回收#凯里上门回收黄金"}, {"id": "AB3", "area": "梧州", "copywriting": "梧州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#梧州黄金回收#梧州上门回收黄金"}, {"id": "AB4", "area": "贵港", "copywriting": "贵港黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#贵港黄金回收#贵港上门回收黄金"}, {"id": "AB5", "area": "河池", "copywriting": "河池黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#河池黄金回收#河池上门回收黄金"}, {"id": "AB6", "area": "崇左", "copywriting": "崇左黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#崇左黄金回收#崇左上门回收黄金"}, {"id": "AB7", "area": "防城港", "copywriting": "防城港黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#防城港黄金回收#防城港上门回收黄金"}, {"id": "AB8", "area": "来宾", "copywriting": "来宾黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#来宾黄金回收#来宾上门回收黄金"}, {"id": "AC1", "area": "贺州", "copywriting": "贺州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#贺州黄金回收#贺州上门回收黄金"}, {"id": "AC2", "area": "遵义", "copywriting": "遵义黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#遵义黄金回收#遵义上门回收黄金"}, {"id": "AC3", "area": "六盘水", "copywriting": "六盘水黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#六盘水黄金回收#六盘水上门回收黄金"}, {"id": "AC4", "area": "都匀", "copywriting": "都匀黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#都匀黄金回收#都匀上门回收黄金"}, {"id": "AC5", "area": "黔西", "copywriting": "黔西黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#黔西黄金回收#黔西上门回收黄金"}, {"id": "AC6", "area": "宜宾", "copywriting": "宜宾黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#宜宾黄金回收#宜宾上门回收黄金"}, {"id": "AC7", "area": "安顺", "copywriting": "安顺黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#安顺黄金回收#安顺上门回收黄金"}, {"id": "AC8", "area": "德阳", "copywriting": "德阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#德阳黄金回收#德阳上门回收黄金"}, {"id": "BA1", "area": "宣威", "copywriting": "宣威黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#宣威黄金回收#宣威上门回收黄金"}, {"id": "BA2", "area": "怀化", "copywriting": "怀化黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#怀化黄金回收#怀化上门回收黄金"}, {"id": "BA3", "area": "丽江", "copywriting": "丽江黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#丽江黄金回收#丽江上门回收黄金"}, {"id": "BA4", "area": "普洱", "copywriting": "普洱黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#普洱黄金回收#普洱上门回收黄金"}, {"id": "BA5", "area": "水富", "copywriting": "水富黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#水富黄金回收#水富上门回收黄金"}, {"id": "BA6", "area": "个旧", "copywriting": "个旧黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#个旧黄金回收#个旧上门回收黄金"}, {"id": "BA7", "area": "景洪", "copywriting": "景洪黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#景洪黄金回收#景洪上门回收黄金"}, {"id": "BA8", "area": "瑞丽", "copywriting": "瑞丽黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#瑞丽黄金回收#瑞丽上门回收黄金"}, {"id": "BA9", "area": "铜仁", "copywriting": "铜仁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#铜仁黄金回收#铜仁上门回收黄金"}, {"id": "BB1", "area": "张家界", "copywriting": "张家界黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#张家界黄金回收#张家界上门回收黄金"}, {"id": "BB2", "area": "任丘", "copywriting": "任丘黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#任丘黄金回收#任丘上门回收黄金"}, {"id": "BB3", "area": "常德", "copywriting": "常德黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#常德黄金回收#常德上门回收黄金"}, {"id": "BB4", "area": "定海", "copywriting": "定海黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#定海黄金回收#定海上门回收黄金"}, {"id": "BB5", "area": "厦门", "copywriting": "厦门黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#厦门黄金回收#厦门上门回收黄金"}, {"id": "BB6", "area": "台山", "copywriting": "台山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#台山黄金回收#台山上门回收黄金"}, {"id": "BB7", "area": "东莞", "copywriting": "东莞黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#东莞黄金回收#东莞上门回收黄金"}, {"id": "BB8", "area": "丽水", "copywriting": "丽水黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#丽水黄金回收#丽水上门回收黄金"}, {"id": "BC1", "area": "武汉", "copywriting": "武汉黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#武汉黄金回收#武汉上门回收黄金"}, {"id": "BC2", "area": "宜昌", "copywriting": "宜昌黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#宜昌黄金回收#宜昌上门回收黄金"}, {"id": "BC3", "area": "荆门", "copywriting": "荆门黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#荆门黄金回收#荆门上门回收黄金"}, {"id": "BC4", "area": "随州", "copywriting": "随州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#随州黄金回收#随州上门回收黄金"}, {"id": "CA1", "area": "兴义", "copywriting": "兴义黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#兴义黄金回收#兴义上门回收黄金"}, {"id": "CA2", "area": "岑溪", "copywriting": "岑溪黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#岑溪黄金回收#岑溪上门回收黄金"}, {"id": "CA3", "area": "凭祥", "copywriting": "凭祥黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#凭祥黄金回收#凭祥上门回收黄金"}, {"id": "CA4", "area": "桂平", "copywriting": "桂平黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#桂平黄金回收#桂平上门回收黄金"}, {"id": "CA5", "area": "北流", "copywriting": "北流黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#北流黄金回收#北流上门回收黄金"}, {"id": "CA6", "area": "涿州", "copywriting": "涿州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#涿州黄金回收#涿州上门回收黄金"}, {"id": "CA7", "area": "定西", "copywriting": "定西黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#定西黄金回收#定西上门回收黄金"}, {"id": "CA8", "area": "东兴", "copywriting": "东兴黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#东兴黄金回收#东兴上门回收黄金"}, {"id": "CB1", "area": "靖西", "copywriting": "靖西黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#靖西黄金回收#靖西上门回收黄金"}, {"id": "CB2", "area": "荔浦", "copywriting": "荔浦黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#荔浦黄金回收#荔浦上门回收黄金"}, {"id": "CB3", "area": "衡阳", "copywriting": "衡阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#衡阳黄金回收#衡阳上门回收黄金"}, {"id": "CB4", "area": "武威", "copywriting": "武威黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#武威黄金回收#武威上门回收黄金"}, {"id": "CB5", "area": "酒泉", "copywriting": "酒泉黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#酒泉黄金回收#酒泉上门回收黄金"}, {"id": "CB6", "area": "庆阳", "copywriting": "庆阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#庆阳黄金回收#庆阳上门回收黄金"}, {"id": "CB7", "area": "天水", "copywriting": "天水黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#天水黄金回收#天水上门回收黄金"}, {"id": "CB8", "area": "郴州", "copywriting": "郴州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#郴州黄金回收#郴州上门回收黄金"}, {"id": "CC1", "area": "娄底", "copywriting": "娄底黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#娄底黄金回收#娄底上门回收黄金"}, {"id": "CC2", "area": "临夏", "copywriting": "临夏黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#临夏黄金回收#临夏上门回收黄金"}, {"id": "CC3", "area": "新乐", "copywriting": "新乐黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#新乐黄金回收#新乐上门回收黄金"}, {"id": "CC4", "area": "武安", "copywriting": "武安黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#武安黄金回收#武安上门回收黄金"}, {"id": "CC5", "area": "吴忠", "copywriting": "吴忠黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#吴忠黄金回收#吴忠上门回收黄金"}, {"id": "CC6", "area": "陇南", "copywriting": "陇南黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#陇南黄金回收#陇南上门回收黄金"}, {"id": "CC7", "area": "平果", "copywriting": "平果黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#平果黄金回收#平果上门回收黄金"}, {"id": "CC8", "area": "合山", "copywriting": "合山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#合山黄金回收#合山上门回收黄金"}, {"id": "DA1", "area": "广元", "copywriting": "广元黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#广元黄金回收#广元上门回收黄金"}, {"id": "DA2", "area": "南充", "copywriting": "南充黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#南充黄金回收#南充上门回收黄金"}, {"id": "DA3", "area": "乐山", "copywriting": "乐山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#乐山黄金回收#乐山上门回收黄金"}, {"id": "DA4", "area": "广安", "copywriting": "广安黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#广安黄金回收#广安上门回收黄金"}, {"id": "DA5", "area": "内江", "copywriting": "内江黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#内江黄金回收#内江上门回收黄金"}, {"id": "DA6", "area": "遂宁", "copywriting": "遂宁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#遂宁黄金回收#遂宁上门回收黄金"}, {"id": "DA7", "area": "泸州", "copywriting": "泸州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#泸州黄金回收#泸州上门回收黄金"}, {"id": "DA8", "area": "达州", "copywriting": "达州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#达州黄金回收#达州上门回收黄金"}, {"id": "DA9", "area": "攀枝花", "copywriting": "攀枝花黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#攀枝花黄金回收#攀枝花上门回收黄金"}, {"id": "DA10", "area": "自贡", "copywriting": "自贡黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#自贡黄金回收#自贡上门回收黄金"}, {"id": "DB1", "area": "资阳", "copywriting": "资阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#资阳黄金回收#资阳上门回收黄金"}, {"id": "DB2", "area": "雅安", "copywriting": "雅安黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#雅安黄金回收#雅安上门回收黄金"}, {"id": "DB3", "area": "巴中", "copywriting": "巴中黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#巴中黄金回收#巴中上门回收黄金"}, {"id": "DB4", "area": "眉山", "copywriting": "眉山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#眉山黄金回收#眉山上门回收黄金"}, {"id": "DB5", "area": "都江堰", "copywriting": "都江堰黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#都江堰黄金回收#都江堰上门回收黄金"}, {"id": "DB6", "area": "彭州", "copywriting": "彭州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#彭州黄金回收#彭州上门回收黄金"}, {"id": "DB7", "area": "邛崃", "copywriting": "邛崃黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#邛崃黄金回收#邛崃上门回收黄金"}, {"id": "DB8", "area": "崇州", "copywriting": "崇州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#崇州黄金回收#崇州上门回收黄金"}, {"id": "DB9", "area": "广汉", "copywriting": "广汉黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#广汉黄金回收#广汉上门回收黄金"}, {"id": "DB10", "area": "简阳", "copywriting": "简阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#简阳黄金回收#简阳上门回收黄金"}, {"id": "DC1", "area": "什邡", "copywriting": "什邡黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#什邡黄金回收#什邡上门回收黄金"}, {"id": "DC2", "area": "绵竹", "copywriting": "绵竹黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#绵竹黄金回收#绵竹上门回收黄金"}, {"id": "DC3", "area": "江油", "copywriting": "江油黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#江油黄金回收#江油上门回收黄金"}, {"id": "DC4", "area": "峨眉山", "copywriting": "峨眉山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#峨眉山黄金回收#峨眉山上门回收黄金"}, {"id": "DC5", "area": "阆中", "copywriting": "阆中黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#阆中黄金回收#阆中上门回收黄金"}, {"id": "DC6", "area": "万源", "copywriting": "万源黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#万源黄金回收#万源上门回收黄金"}, {"id": "DC7", "area": "西昌", "copywriting": "西昌黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#西昌黄金回收#西昌上门回收黄金"}, {"id": "DC8", "area": "会理", "copywriting": "会理黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#会理黄金回收#会理上门回收黄金"}, {"id": "DC9", "area": "华蓥", "copywriting": "华蓥黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#华蓥黄金回收#华蓥上门回收黄金"}, {"id": "DC10", "area": "射洪", "copywriting": "射洪黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#射洪黄金回收#射洪上门回收黄金"}, {"id": "EA1", "area": "隆昌", "copywriting": "隆昌黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#隆昌黄金回收#隆昌上门回收黄金"}, {"id": "EA2", "area": "曲靖", "copywriting": "曲靖黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#曲靖黄金回收#曲靖上门回收黄金"}, {"id": "EA3", "area": "兴仁", "copywriting": "兴仁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#兴仁黄金回收#兴仁上门回收黄金"}, {"id": "EA4", "area": "保山", "copywriting": "保山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#保山黄金回收#保山上门回收黄金"}, {"id": "EA5", "area": "临沧", "copywriting": "临沧黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#临沧黄金回收#临沧上门回收黄金"}, {"id": "EA6", "area": "澄江", "copywriting": "澄江黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#澄江黄金回收#澄江上门回收黄金"}, {"id": "EA7", "area": "楚雄", "copywriting": "楚雄黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#楚雄黄金回收#楚雄上门回收黄金"}, {"id": "EA8", "area": "开远", "copywriting": "开远黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#开远黄金回收#开远上门回收黄金"}, {"id": "EB1", "area": "大理", "copywriting": "大理黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#大理黄金回收#大理上门回收黄金"}, {"id": "EB2", "area": "咸宁", "copywriting": "咸宁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#咸宁黄金回收#咸宁上门回收黄金"}, {"id": "EB3", "area": "黄石", "copywriting": "黄石黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#黄石黄金回收#黄石上门回收黄金"}, {"id": "EB4", "area": "襄阳", "copywriting": "襄阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#襄阳黄金回收#襄阳上门回收黄金"}, {"id": "EB5", "area": "荆州", "copywriting": "荆州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#荆州黄金回收#荆州上门回收黄金"}, {"id": "FA1", "area": "盘州", "copywriting": "盘州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#盘州黄金回收#盘州上门回收黄金"}, {"id": "FA2", "area": "仁怀", "copywriting": "仁怀黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#仁怀黄金回收#仁怀上门回收黄金"}, {"id": "FA3", "area": "赤水", "copywriting": "赤水黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#赤水黄金回收#赤水上门回收黄金"}, {"id": "FA4", "area": "横州", "copywriting": "横州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#横州黄金回收#横州上门回收黄金"}, {"id": "FA5", "area": "福泉", "copywriting": "福泉黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#福泉黄金回收#福泉上门回收黄金"}, {"id": "FA6", "area": "昭通", "copywriting": "昭通黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#昭通黄金回收#昭通上门回收黄金"}, {"id": "FA7", "area": "安宁", "copywriting": "安宁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#安宁黄金回收#安宁上门回收黄金"}, {"id": "FA8", "area": "腾冲", "copywriting": "腾冲黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#腾冲黄金回收#腾冲上门回收黄金"}, {"id": "FB1", "area": "蒙自", "copywriting": "蒙自黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#蒙自黄金回收#蒙自上门回收黄金"}, {"id": "FB2", "area": "弥勒", "copywriting": "弥勒黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#弥勒黄金回收#弥勒上门回收黄金"}, {"id": "FB3", "area": "文山", "copywriting": "文山黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#文山黄金回收#文山上门回收黄金"}, {"id": "FB4", "area": "芒市", "copywriting": "芒市黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#芒市黄金回收#芒市上门回收黄金"}, {"id": "FB5", "area": "孝感", "copywriting": "孝感黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#孝感黄金回收#孝感上门回收黄金"}, {"id": "FB6", "area": "十堰", "copywriting": "十堰黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#十堰黄金回收#十堰上门回收黄金"}, {"id": "FB7", "area": "福州", "copywriting": "福州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#福州黄金回收#福州上门回收黄金"}, {"id": "FB8", "area": "益阳", "copywriting": "益阳黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#益阳黄金回收#益阳上门回收黄金"}, {"id": "FC1", "area": "梅州", "copywriting": "梅州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#梅州黄金回收#梅州上门回收黄金"}, {"id": "FC2", "area": "龙岩", "copywriting": "龙岩黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#龙岩黄金回收#龙岩上门回收黄金"}, {"id": "FC3", "area": "宿迁", "copywriting": "宿迁黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#宿迁黄金回收#宿迁上门回收黄金"}, {"id": "FC4", "area": "清镇", "copywriting": "清镇黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#清镇黄金回收#清镇上门回收黄金"}, {"id": "FC5", "area": "莆田", "copywriting": "莆田黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#莆田黄金回收#莆田上门回收黄金"}, {"id": "FC6", "area": "霸州", "copywriting": "霸州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#霸州黄金回收#霸州上门回收黄金"}, {"id": "FC7", "area": "鄂州", "copywriting": "鄂州黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#鄂州黄金回收#鄂州上门回收黄金"}, {"id": "FC8", "area": "黄冈", "copywriting": "黄冈黄金/克#黄金回收实体门店#同城黄金回收#黄金回收多少一克#黄冈黄金回收#黄冈上门回收黄金"}];
 var DATA_MAP = {};
 DATA.forEach(function(item) { DATA_MAP[item.area] = item; });
-var currentArea = "";
 
-function renderList(filter) {
-    var items = DATA;
-    if (filter) {
-        var kw = filter.toLowerCase();
-        items = DATA.filter(function(d) {
-            return d.area.toLowerCase().indexOf(kw) >= 0 || d.id.toLowerCase().indexOf(kw) >= 0;
-        });
+function getAreaFromHash() {
+    var raw = window.location.hash.substring(1);
+    if (!raw) return null;
+    if (DATA_MAP[raw]) return raw;
+    try { var d = decodeURIComponent(raw); if (DATA_MAP[d]) return d; } catch(e) {}
+    if (raw.indexOf('%') >= 0) {
+        try { var d2 = decodeURIComponent(raw); if (DATA_MAP[d2]) return d2; } catch(e) {}
     }
-    var html = "";
-    items.forEach(function(item, idx) {
-        html += '<div class="list-item" onclick="showDetail('' + escHtml(item.area) + '')">' +
-            '<div class="num">' + (idx + 1) + '</div>' +
-            '<div class="info">' +
-                '<div class="area">' + escHtml(item.area) + '</div>' +
-                '<div class="preview">' + escHtml(item.copywriting.substring(0, 40)) + '...</div>' +
-            '</div>' +
-            '<div class="arrow">&rsaquo;</div>' +
-        '</div>';
-    });
-    if (items.length === 0) html = '<div style="text-align:center;padding:40px;color:#999;">未找到匹配</div>';
-    document.getElementById("listContainer").innerHTML = html;
+    return null;
 }
 
-function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-function filterList() {
-    renderList(document.getElementById("searchInput").value);
-}
-
-function showDetail(area) {
+function showCopywriting(area) {
     var item = DATA_MAP[area];
     if (!item) return;
-    currentArea = area;
-    document.getElementById("listView").style.display = "none";
-    document.getElementById("mainHeader").style.display = "none";
-    document.getElementById("detailView").classList.add("active");
-    document.getElementById("detailHeader").style.display = "";
-    document.getElementById("detailTitle").textContent = item.area;
+    document.getElementById("areaTitle").textContent = item.area + " 黄金回收";
     document.getElementById("detailArea").textContent = item.area + " 黄金回收文案";
     document.getElementById("detailText").textContent = item.copywriting;
-    document.getElementById("shareUrlDisplay").textContent = getShareUrl(area);
-    window.location.hash = "#" + area;
-    window.scrollTo(0, 0);
-}
-
-function getShareUrl(area) {
-    return window.location.origin + window.location.pathname + "#" + area;
-}
-
-function goBack() {
-    document.getElementById("listView").style.display = "";
-    document.getElementById("mainHeader").style.display = "";
-    document.getElementById("detailView").classList.remove("active");
-    document.getElementById("detailHeader").style.display = "none";
-    window.location.hash = "";
-    currentArea = "";
+    document.getElementById("shareUrlDisplay").textContent = window.location.origin + window.location.pathname + "#" + area;
+    document.getElementById("contentView").classList.remove("hidden");
+    document.getElementById("welcomeView").style.display = "none";
 }
 
 function copyText() {
-    var item = DATA_MAP[currentArea];
-    if (!item) return;
-    copyToClipboard(item.copywriting, "文案已复制");
-}
-
-function shareLink() {
-    var url = getShareUrl(currentArea);
-    var item = DATA_MAP[currentArea];
-    if (navigator.share) {
-        navigator.share({ title: item.area + " - 黄金回收文案", text: item.area + "黄金回收文案", url: url }).catch(function(){});
-    } else {
-        copyToClipboard(url, "链接已复制，可发送给他人");
-    }
-}
-
-function copyToClipboard(text, msg) {
+    var text = document.getElementById("detailText").textContent;
+    if (!text) return;
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() { showToast(msg); });
+        navigator.clipboard.writeText(text).then(function() { showToast("文案已复制"); });
     } else {
         var ta = document.createElement("textarea");
         ta.value = text; ta.style.cssText = "position:fixed;left:-9999px";
         document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); showToast(msg); } catch(e) { showToast("复制失败，请手动复制"); }
+        try { document.execCommand("copy"); showToast("文案已复制"); } catch(e) {}
         document.body.removeChild(ta);
+    }
+}
+
+function shareLink() {
+    var area = getAreaFromHash();
+    if (!area) return;
+    var url = window.location.origin + window.location.pathname + "#" + area;
+    var item = DATA_MAP[area];
+    if (navigator.share) {
+        navigator.share({ title: item.area + "黄金回收文案", text: item.area + "黄金回收文案", url: url }).catch(function(){});
+    } else {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(function() { showToast("链接已复制"); });
+        } else {
+            var ta = document.createElement("textarea");
+            ta.value = url; ta.style.cssText = "position:fixed;left:-9999px";
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand("copy"); showToast("链接已复制"); } catch(e) {}
+            document.body.removeChild(ta);
+        }
     }
 }
 
@@ -185,27 +134,23 @@ function showToast(msg) {
     setTimeout(function() { t.classList.remove("show"); }, 1800);
 }
 
-function getAreaFromHash() {
-    var raw = window.location.hash.substring(1);
-    if (!raw) return null;
-    if (DATA_MAP[raw]) return raw;
-    try { var d = decodeURIComponent(raw); if (DATA_MAP[d]) return d; } catch(e) {}
-    try { var e = encodeURIComponent(raw); if (DATA_MAP[e]) return e; } catch(e) {}
-    // 中文被编码时尝试解码
-    if (raw.indexOf('%') >= 0) {
-        try { var d2 = decodeURIComponent(raw); if (DATA_MAP[d2]) return d2; } catch(e) {}
-    }
-    return null;
+var area = getAreaFromHash();
+if (area) {
+    showCopywriting(area);
+} else {
+    document.getElementById("welcomeView").style.display = "";
+    document.getElementById("contentView").classList.add("hidden");
 }
 
 window.addEventListener("hashchange", function() {
-    var area = getAreaFromHash();
-    if (area) showDetail(area); else goBack();
+    var a = getAreaFromHash();
+    if (a) {
+        showCopywriting(a);
+    } else {
+        document.getElementById("welcomeView").style.display = "";
+        document.getElementById("contentView").classList.add("hidden");
+    }
 });
-
-renderList();
-var initArea = getAreaFromHash();
-if (initArea) showDetail(initArea);
 </script>
 </body>
 </html>
