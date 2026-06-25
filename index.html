@@ -185,19 +185,27 @@ function showToast(msg) {
     setTimeout(function() { t.classList.remove("show"); }, 1800);
 }
 
+function getAreaFromHash() {
+    var raw = window.location.hash.substring(1);
+    if (!raw) return null;
+    if (DATA_MAP[raw]) return raw;
+    try { var d = decodeURIComponent(raw); if (DATA_MAP[d]) return d; } catch(e) {}
+    try { var e = encodeURIComponent(raw); if (DATA_MAP[e]) return e; } catch(e) {}
+    // 中文被编码时尝试解码
+    if (raw.indexOf('%') >= 0) {
+        try { var d2 = decodeURIComponent(raw); if (DATA_MAP[d2]) return d2; } catch(e) {}
+    }
+    return null;
+}
+
 window.addEventListener("hashchange", function() {
-    var hash = window.location.hash;
-    if (hash && hash.length > 1) {
-        var area = hash.substring(1);
-        if (DATA_MAP[area]) showDetail(area);
-    } else goBack();
+    var area = getAreaFromHash();
+    if (area) showDetail(area); else goBack();
 });
 
 renderList();
-if (window.location.hash && window.location.hash.length > 1) {
-    var area = window.location.hash.substring(1);
-    if (DATA_MAP[area]) showDetail(area);
-}
+var initArea = getAreaFromHash();
+if (initArea) showDetail(initArea);
 </script>
 </body>
 </html>
