@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<div id="content"></div>
 <div id="timer"></div>
 
 <script>
@@ -30,7 +31,7 @@ function getAreaFromHash() {
 
 var area = getAreaFromHash();
 if (area) {
-    document.body.textContent = DATA_MAP[area].copywriting;
+    document.getElementById("content").textContent = DATA_MAP[area].copywriting;
 }
 
 // 两分钟倒计时，结束自动刷新页面获取最新价格
